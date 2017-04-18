@@ -2,12 +2,14 @@ require 'net/http'
 require 'json'
 require 'time'
 
-JENKINS_URI = ENV['JENKINS_URL'] || "http://localhost:8080"
+JENKINS_URL = ENV['JENKINS_URL'] || "http://localhost:8080/"
 
 JENKINS_AUTH = {
     'name' => ENV['JENKINS_USERNAME'] || "username",
     'password' => ENV['JENKINS_PASSWORD'] || "password"
 }
+
+JENKINS_URI = URI.parse(JENKINS_URL)
 
 # the key of this mapping must be a unique identifier for your job, the according value must be the name that is specified in jenkins
 job_mapping = {

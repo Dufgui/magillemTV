@@ -17,7 +17,7 @@ jira_options = {
   :username => JIRA_PROPS['username'],
   :password => JIRA_PROPS['password'],
   :context_path => JIRA_PROPS['url'].path,
-  :site => JIRA_PROPS['url'].scheme + "://" + JIRA_PROPS['url'].host,
+  :site => JIRA_PROPS['url'].to_s,
   :auth_type => :basic,
   :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE,
   :use_ssl => JIRA_PROPS['url'].scheme == 'https' ? true : false,

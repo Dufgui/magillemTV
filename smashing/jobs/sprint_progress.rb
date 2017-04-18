@@ -2,9 +2,9 @@ require 'jira-ruby'
 
 SCHEDULER.every '5m', :first_in => 0 do |job|
   client = JIRA::Client.new({
-    :username => ENV['JIRA_USERNAME'],
-    :password => ENV['JIRA_PASSWORD'],
-    :site => ENV['JIRA_URL'],
+    :username => ENV['JIRA_USERNAME'] || "username",
+    :password => ENV['JIRA_PASSWORD'] || "password",
+    :site => ENV['JIRA_URL'] || "http://localhost:8080/",
     :auth_type => :basic,
     :context_path => ""
   })

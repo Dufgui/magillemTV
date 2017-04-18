@@ -1,12 +1,14 @@
 require 'net/http'
 require 'json'
 
-JENKINS_URI = ENV['JENKINS_URL'] || "http://localhost:8080"
+JENKINS_URL = ENV['JENKINS_URL'] || "http://localhost:8080/"
 
 JENKINS_AUTH = {
-  'name' => ENV['JENKINS_USERNAME'] || "username",
-  'password' => ENV['JENKINS_PASSWORD'] || "password"
+    'name' => ENV['JENKINS_USERNAME'] || "username",
+    'password' => ENV['JENKINS_PASSWORD'] || "password"
 }
+
+JENKINS_URI = URI.parse(JENKINS_URL)
 
 SCHEDULER.every '10s' do
 
